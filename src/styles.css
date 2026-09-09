@@ -1,0 +1,365 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+/*
+ * PEREGRINO — FÉ E CAMINHO
+ * Design system editorial: oliva, areia, ouro fosco.
+ */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Brand */
+  --color-olive-950: var(--p-olive-950);
+  --color-olive-900: var(--p-olive-900);
+  --color-olive-800: var(--p-olive-800);
+  --color-olive-700: var(--p-olive-700);
+  --color-beige-50: var(--p-beige-50);
+  --color-beige-100: var(--p-beige-100);
+  --color-beige-200: var(--p-beige-200);
+  --color-beige-300: var(--p-beige-300);
+  --color-sand: var(--p-sand);
+  --color-gold: var(--p-gold);
+  --color-gold-light: var(--p-gold-light);
+  --color-gold-matte: var(--p-gold-matte);
+  --color-earth: var(--p-earth);
+  --color-ink: var(--p-black);
+  --color-paper: var(--p-white);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 16px;
+
+  --spacing-s1: 4px;
+  --spacing-s2: 8px;
+  --spacing-s3: 12px;
+  --spacing-s4: 16px;
+  --spacing-s5: 24px;
+  --spacing-s6: 32px;
+  --spacing-s7: 48px;
+  --spacing-s8: 64px;
+  --spacing-s9: 96px;
+  --spacing-s10: 128px;
+  --spacing-s11: 160px;
+
+  --container-content: 1200px;
+  --container-wide: 1440px;
+}
+
+:root {
+  /* BRAND */
+  --p-olive-950: #20251d;
+  --p-olive-900: #2d3328;
+  --p-olive-800: #3c4435;
+  --p-olive-700: #505a45;
+  --p-beige-50: #f8f5ed;
+  --p-beige-100: #f1ebdd;
+  --p-beige-200: #e5dccb;
+  --p-beige-300: #d6c8b0;
+  --p-sand: #c8b99d;
+  --p-gold: #b29452;
+  --p-gold-light: #c5a968;
+  --p-gold-matte: #a88948;
+  --p-earth: #6b5a45;
+  --p-black: #171815;
+  --p-white: #fcfaf5;
+
+  /* TYPOGRAPHY */
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Inter", Arial, sans-serif;
+
+  /* TRANSITIONS */
+  --transition-fast: 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition: 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-slow: 600ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* SEMANTIC (shadcn) */
+  --background: var(--p-beige-50);
+  --foreground: var(--p-olive-950);
+  --card: var(--p-white);
+  --card-foreground: var(--p-olive-950);
+  --popover: var(--p-white);
+  --popover-foreground: var(--p-olive-950);
+  --primary: var(--p-olive-900);
+  --primary-foreground: var(--p-beige-50);
+  --secondary: var(--p-beige-200);
+  --secondary-foreground: var(--p-olive-900);
+  --muted: var(--p-beige-100);
+  --muted-foreground: var(--p-earth);
+  --accent: var(--p-gold);
+  --accent-foreground: var(--p-olive-950);
+  --destructive: #8c3b2a;
+  --destructive-foreground: var(--p-beige-50);
+  --border: rgb(32 37 29 / 12%);
+  --input: rgb(32 37 29 / 18%);
+  --ring: var(--p-gold);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--p-gold);
+    color: var(--p-white);
+  }
+}
+
+/* ---------- TYPOGRAPHY ---------- */
+
+@utility display-1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.75rem, 7vw, 5.75rem);
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+}
+
+@utility display-2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2rem, 4.4vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+@utility display-3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+@utility body-lg {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  letter-spacing: 0.005em;
+  color: color-mix(in srgb, var(--p-olive-950) 78%, transparent);
+}
+
+@utility body-base {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  letter-spacing: 0.005em;
+  color: color-mix(in srgb, var(--p-olive-950) 72%, transparent);
+}
+
+@utility caption {
+  font-size: 0.6875rem;
+  line-height: 1.6;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ---------- LAYOUT ---------- */
+
+@utility shell {
+  width: 100%;
+  max-width: var(--container-wide);
+  margin-inline: auto;
+}
+
+@utility content {
+  width: 100%;
+  max-width: var(--container-content);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+@media (min-width: 768px) {
+  .content {
+    padding-inline: 48px;
+  }
+}
+
+@utility section {
+  padding-block: 96px;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: 128px;
+  }
+}
+
+@utility rule {
+  display: block;
+  width: 56px;
+  height: 1px;
+  background: var(--p-gold);
+}
+
+/* ---------- BUTTONS ---------- */
+
+@utility btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 54px;
+  padding-inline: 34px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    border-color var(--transition);
+  cursor: pointer;
+}
+
+@utility btn-solid {
+  background: var(--p-olive-900);
+  color: var(--p-beige-50);
+  border-color: var(--p-olive-900);
+  &:hover {
+    background: var(--p-olive-950);
+    border-color: var(--p-olive-950);
+  }
+}
+
+@utility btn-outline {
+  background: transparent;
+  color: var(--p-olive-900);
+  border-color: color-mix(in srgb, var(--p-olive-900) 35%, transparent);
+  &:hover {
+    border-color: var(--p-olive-900);
+    background: color-mix(in srgb, var(--p-olive-900) 5%, transparent);
+  }
+}
+
+@utility btn-ghost-light {
+  background: transparent;
+  color: var(--p-beige-50);
+  border-color: color-mix(in srgb, var(--p-beige-50) 40%, transparent);
+  &:hover {
+    background: color-mix(in srgb, var(--p-beige-50) 10%, transparent);
+    border-color: var(--p-beige-50);
+  }
+}
+
+@utility link-underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.35;
+    transform-origin: left;
+    transition: opacity var(--transition);
+  }
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+/* ---------- IMAGERY ---------- */
+
+@utility film {
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@utility img-slow {
+  transition: transform var(--transition-slow);
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+/* ---------- MOTION ---------- */
+
+@keyframes p-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes p-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@utility reveal {
+  opacity: 0;
+  animation: p-fade-up 700ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@utility reveal-in {
+  animation: p-fade 900ms ease forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
