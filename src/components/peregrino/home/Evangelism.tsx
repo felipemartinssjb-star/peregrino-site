@@ -7,9 +7,7 @@ export function Evangelism() {
       <div className="content grid items-center gap-16 py-24 md:grid-cols-12 md:py-32">
         <Reveal className="md:col-span-5">
           <span className="caption text-gold">Evangelismo silencioso</span>
-          <h2 className="mt-8 display-2 text-beige-50">
-            Viva de modo que Jesus apareça.
-          </h2>
+          <h2 className="mt-8 display-2 text-beige-50">Viva de modo que Jesus apareça.</h2>
           <span className="rule mt-8" />
           <p className="mt-8 text-[0.9375rem] leading-[1.85] text-sand">
             Nem toda conversa começa com palavras. Às vezes começa com uma frase nas costas de

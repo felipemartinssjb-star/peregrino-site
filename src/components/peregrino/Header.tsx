@@ -1,10 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, ShoppingBag, X } from "lucide-react";
 import { Logo } from "./Logo";
+import { useCart } from "@/lib/cart";
 
 const NAV = [
-  { label: "Coleção", to: "/produto" },
+  { label: "Coleção", to: "/catalogo" },
   { label: "Peregrino", to: "/peregrino" },
   { label: "Missão", to: "/missao" },
   { label: "Journal", to: "/journal" },
@@ -14,6 +15,7 @@ const NAV = [
 export function Header({ overlay = false }: { overlay?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { contagem } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -28,7 +30,9 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
     <header
       className="fixed inset-x-0 top-0 z-50"
       style={{
-        backgroundColor: solid ? "color-mix(in srgb, var(--p-beige-50) 94%, transparent)" : "transparent",
+        backgroundColor: solid
+          ? "color-mix(in srgb, var(--p-beige-50) 94%, transparent)"
+          : "transparent",
         backgroundImage: solid
           ? "none"
           : "linear-gradient(180deg, color-mix(in srgb, var(--p-beige-50) 72%, transparent) 0%, transparent 100%)",
@@ -37,7 +41,6 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
         transition: "background-color 350ms ease, border-color 350ms ease",
       }}
     >
-
       <div className="shell flex items-center justify-between px-6 py-5 md:px-12">
         <Logo />
 
@@ -55,8 +58,23 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
         </nav>
 
         <div className="flex items-center gap-6">
-          <Link to="/produto" className="caption hidden text-olive-800 hover:text-gold md:inline-block">
+          <Link
+            to="/catalogo"
+            className="caption hidden text-olive-800 hover:text-gold md:inline-block"
+          >
             Vista sua fé
+          </Link>
+          <Link
+            to="/carrinho"
+            className="relative text-olive-900 transition-colors hover:text-gold"
+            aria-label={`Carrinho${contagem > 0 ? ` (${contagem} itens)` : ""}`}
+          >
+            <ShoppingBag size={20} strokeWidth={1.25} />
+            {contagem > 0 && (
+              <span className="absolute -right-2.5 -top-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-olive-900 px-1 text-[0.625rem] font-medium text-beige-50">
+                {contagem}
+              </span>
+            )}
           </Link>
           <button
             type="button"
@@ -82,6 +100,9 @@ export function Header({ overlay = false }: { overlay?: boolean }) {
                 {item.label}
               </Link>
             ))}
+            <Link to="/carrinho" onClick={() => setOpen(false)} className="caption text-olive-800">
+              Carrinho{contagem > 0 ? ` (${contagem})` : ""}
+            </Link>
           </nav>
         </div>
       )}

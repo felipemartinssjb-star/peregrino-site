@@ -5,22 +5,24 @@
 **Projeto** (raiz real: `peregrino-site-master\peregrino-site-master\`): TanStack Start + React 19 + Tailwind 4 + shadcn/ui (Lovable), SSR/Nitro → Cloudflare. Hoje é 100% estático: 1 produto hardcoded (`src/routes/produto.tsx`), sem carrinho, sem admin, sem backend (só SSR de erro + CSRF middleware), 79 fotos soltas na raiz e 3 planilhas de importação Tray (`Camisas_Importacao_*.xlsx`).
 
 **Decisões do usuário:**
+
 1. Carrinho **local na vitrine**; ao final, transferir itens pro carrinho da Tray e redirecionar pro checkout Tray.
 2. Persistência em **JSON estático no projeto** (sem banco).
 3. Admin protegido por **senha única** (env).
 
 ## O que a pesquisa na Tray mostrou (testado em lojas Tray reais hoje)
 
-| Ação | Mecanismo | Status |
-|---|---|---|
-| Adicionar produto | `GET {TRAY_URL}/loja/cartService.php?loja={LOJA_ID}&acao=incluir&IdProd={ID}` | ✅ 302 → `checkout/cart?session_id=…&store_id=…` |
-| Adicionar com variação (tamanho) | mesma URL + `&variacao={VARIANT_ID}` | ✅ testado (`variacao` aceito; sem ele → redirect pra produto com `erro_escolher_variacao=1`) |
-| Abrir carrinho | `GET {TRAY_URL}/loja/redirect_cart_service.php?loja={LOJA_ID}` | ✅ resolve sessão via cookie → checkout Tray |
-| Sessão/acúmulo | cookie `PHPSESSID` (30 dias); dois adds na mesma sessão → mesmo `session_id` | ✅ confirmado |
-| Página do produto na Tray | `GET {TRAY_URL}/{slug}` | ✅ |
-| Ler carrinho (diagnóstico) | `GET {TRAY_URL}/web_api/cart/{session_id}` | ✅ retorna JSON dos itens |
+| Ação                             | Mecanismo                                                                     | Status                                                                                        |
+| -------------------------------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Adicionar produto                | `GET {TRAY_URL}/loja/cartService.php?loja={LOJA_ID}&acao=incluir&IdProd={ID}` | ✅ 302 → `checkout/cart?session_id=…&store_id=…`                                              |
+| Adicionar com variação (tamanho) | mesma URL + `&variacao={VARIANT_ID}`                                          | ✅ testado (`variacao` aceito; sem ele → redirect pra produto com `erro_escolher_variacao=1`) |
+| Abrir carrinho                   | `GET {TRAY_URL}/loja/redirect_cart_service.php?loja={LOJA_ID}`                | ✅ resolve sessão via cookie → checkout Tray                                                  |
+| Sessão/acúmulo                   | cookie `PHPSESSID` (30 dias); dois adds na mesma sessão → mesmo `session_id`  | ✅ confirmado                                                                                 |
+| Página do produto na Tray        | `GET {TRAY_URL}/{slug}`                                                       | ✅                                                                                            |
+| Ler carrinho (diagnóstico)       | `GET {TRAY_URL}/web_api/cart/{session_id}`                                    | ✅ retorna JSON dos itens                                                                     |
 
 Pontos-chave:
+
 - São **navegações/link** (não XHR) → **não há bloqueio de CORS**; funciona de qualquer site.
 - Transferência de N itens = sequência de GETs na **mesma sessão do browser** (iframes ocultos em fila, 1 por vez, para o cookie não correr) → depois navega pra `redirect_cart_service.php`.
 - Quantidade: default 1 (cliente ajusta no carrinho Tray). Nome do campo de quantidade não confirmado — opcional testar `&quantidade=`.
@@ -32,18 +34,18 @@ Pontos-chave:
 
 ```jsonc
 {
-  "id": "camiseta-oliva",            // slug local
+  "id": "camiseta-oliva", // slug local
   "nome": "Camiseta Oliva",
   "descricao": "…",
   "preco": 189,
   "categoria": "camisetas",
-  "tamanhos": ["P","M","G","GG"],
-  "imagens": ["/produtos/1-frente.jpg", "…"],   // máx 3
+  "tamanhos": ["P", "M", "G", "GG"],
+  "imagens": ["/produtos/1-frente.jpg", "…"], // máx 3
   "tray": {
     "url": "https://loja.com.br/camiseta-oliva", // "Comprar agora" / nome do produto
-    "produtoId": 12345,                          // IdProd
-    "variantes": { "P": 111, "M": 112, "G": 113, "GG": 114 }  // opcional, por tamanho
-  }
+    "produtoId": 12345, // IdProd
+    "variantes": { "P": 111, "M": 112, "G": 113, "GG": 114 }, // opcional, por tamanho
+  },
 }
 ```
 
@@ -52,13 +54,13 @@ Pontos-chave:
 
 ### 2. Rotas (file-based, `src/routes/`)
 
-| Rota | O que faz |
-|---|---|
-| `/` | Home existente; `Collections` passa a ler produtos do JSON (loader) |
-| `/catalogo` | Grid completo do catálogo (novo) |
+| Rota             | O que faz                                                                                                                                                                            |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `/`              | Home existente; `Collections` passa a ler produtos do JSON (loader)                                                                                                                  |
+| `/catalogo`      | Grid completo do catálogo (novo)                                                                                                                                                     |
 | `/produto/$slug` | Substitui o hardcoded; loader lê JSON; galeria até 3 imagens; seletor de tamanho; **nome/CTA "Comprar agora" → `tray.url`** (aba nova); **"Adicionar ao carrinho" → carrinho local** |
-| `/carrinho` | Carrinho local: itens, quantidades, remover, **"Finalizar na Tray"** |
-| `/admin` | Login (senha) + CRUD de produtos + upload até 3 imagens |
+| `/carrinho`      | Carrinho local: itens, quantidades, remover, **"Finalizar na Tray"**                                                                                                                 |
+| `/admin`         | Login (senha) + CRUD de produtos + upload até 3 imagens                                                                                                                              |
 
 ### 3. Carrinho local
 

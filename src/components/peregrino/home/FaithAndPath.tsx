@@ -24,8 +24,8 @@ export function FaithAndPath() {
           <h2 className="mt-8 display-2 text-olive-950">O IDE não é um detalhe da fé.</h2>
           <span className="rule mt-8" />
           <p className="mt-8 body-base">
-            O caminho raramente é reto e quase nunca é curto. Mas quem anda com propósito
-            reconhece que o destino já foi prometido — e que cada passo é uma resposta.
+            O caminho raramente é reto e quase nunca é curto. Mas quem anda com propósito reconhece
+            que o destino já foi prometido — e que cada passo é uma resposta.
           </p>
           <p className="mt-5 body-base">
             Nossas peças são pensadas para esse trajeto: tecidos densos, cores da terra, formas que
