@@ -1,19 +1,131 @@
 [
   {
-    "id": "camiseta-oliva",
-    "nome": "Camiseta Caminho Oliva",
-    "descricao": "Algodão penteado 240g, corte oversized e caimento estruturado. Estampa discreta nas costas: “Evangelizar sem falar uma palavra.”",
-    "preco": 189,
+    "id": "camiseta-evangelho",
+    "nome": "NEGAMOS - Coleção Evangelho",
+    "descricao": "Design minimalista: estampagem delicada e centralizada com o logo e a frase “Fé e Caminho”, conferindo um visual sofisticado e discreto. Modelagem oversized: corte amplo e moderno, que proporciona um caimento despojado, maior liberdade de movimento e conforto superior. Cor versátil: tom bege neutro (off-white), fácil de combinar com diversas peças do guarda-roupa, como calças de sarja, jeans ou bermudas. Material de qualidade: tecido selecionado de toque macio e alta durabilidade, ideal para o uso diário com excelente caimento no corpo. Estilo atemporal: peça curinga que equilibra perfeitamente um conceito inspirador com as tendências da moda atual.",
+    "preco": 99,
     "categoria": "Camisetas",
-    "tamanhos": ["P", "M", "G", "GG"],
-    "imagens": ["/produtos/camiseta-oliva-frente.jpg", "/produtos/camiseta-oliva-editorial.jpg"],
+    "tamanhos": [
+      "Verde P",
+      "Verde M",
+      "Verde G",
+      "Preto P",
+      "Preto M",
+      "Preto G",
+      "Branco P",
+      "Branco M",
+      "Branco G"
+    ],
+    "imagens": [
+      "/produtos/colecao-evangelho.png",
+      "/produtos/negamos-2.jpg",
+      "/produtos/guia-tamanhos.jpg"
+    ],
     "bullets": [
-      "Algodão 100% penteado 240g",
-      "Tingimento em tons da terra",
-      "Produção em pequenos lotes"
+      "Estampagem centralizada com logo e frase “Fé e Caminho”",
+      "Modelagem oversized de caimento despojado",
+      "Tecido de toque macio e alta durabilidade",
+      "Cores: Verde, Preto e Branco",
+      "Guia de tamanhos na galeria da peça"
     ],
     "tray": {
-      "url": ""
+      "url": "https://www.peregrino.art.br/camisetas/camiseta-evangelho",
+      "produtoId": 1,
+      "variantes": {
+        "Verde P": 127,
+        "Verde M": 131,
+        "Verde G": 129,
+        "Preto P": 135,
+        "Preto M": 133,
+        "Preto G": 139,
+        "Branco P": 187,
+        "Branco M": 189,
+        "Branco G": 191
+      }
+    }
+  },
+  {
+    "id": "camisa-evangelho-jesus",
+    "nome": "JESUS - Coleção Evangelho",
+    "descricao": "Design minimalista: estampagem delicada e centralizada com o logo e a frase “Fé e Caminho”, conferindo um visual sofisticado e discreto. Modelagem oversized: corte amplo e moderno, que proporciona um caimento despojado, maior liberdade de movimento e conforto superior. Cor versátil: tom bege neutro (off-white), fácil de combinar com diversas peças do guarda-roupa, como calças de sarja, jeans ou bermudas. Material de qualidade: tecido selecionado de toque macio e alta durabilidade, ideal para o uso diário com excelente caimento no corpo. Estilo atemporal: peça curinga que equilibra perfeitamente um conceito inspirador com as tendências da moda atual.",
+    "preco": 99,
+    "categoria": "Camisetas",
+    "tamanhos": [
+      "Verde escuro PP",
+      "Verde escuro GG",
+      "Verde P",
+      "Verde M",
+      "Verde G",
+      "Preto PP",
+      "Preto P",
+      "Preto M",
+      "Preto G",
+      "Preto GG",
+      "Branco PP",
+      "Branco P",
+      "Branco M",
+      "Branco G",
+      "Branco GG"
+    ],
+    "imagens": [
+      "/produtos/colecao-evangelho.png",
+      "/produtos/jesus-2.jpg",
+      "/produtos/guia-tamanhos.jpg"
+    ],
+    "bullets": [
+      "Estampagem centralizada com logo e frase “Fé e Caminho”",
+      "Modelagem oversized de caimento despojado",
+      "Tecido de toque macio e alta durabilidade",
+      "Cores: Verde, Verde escuro, Preto e Branco",
+      "Guia de tamanhos na galeria da peça"
+    ],
+    "tray": {
+      "url": "https://www.peregrino.art.br/camisetas/camisa-evangelho-jesus",
+      "produtoId": 3,
+      "variantes": {
+        "Verde escuro PP": 221,
+        "Verde escuro GG": 223,
+        "Verde P": 147,
+        "Verde M": 145,
+        "Verde G": 151,
+        "Preto PP": 217,
+        "Preto P": 149,
+        "Preto M": 157,
+        "Preto G": 153,
+        "Preto GG": 219,
+        "Branco PP": 225,
+        "Branco P": 193,
+        "Branco M": 195,
+        "Branco G": 197,
+        "Branco GG": 227
+      }
+    }
+  },
+  {
+    "id": "camiseta-evangelho-pregar",
+    "nome": "PREGAR - Coleção Evangelho",
+    "descricao": "Design minimalista: estampagem delicada e centralizada com o logo e a frase “Fé e Caminho”, conferindo um visual sofisticado e discreto. Modelagem oversized: corte amplo e moderno, que proporciona um caimento despojado, maior liberdade de movimento e conforto superior. Cor versátil: tom bege neutro (off-white), fácil de combinar com diversas peças do guarda-roupa, como calças de sarja, jeans ou bermudas. Material de qualidade: tecido selecionado de toque macio e alta durabilidade, ideal para o uso diário com excelente caimento no corpo. Estilo atemporal: peça curinga que equilibra perfeitamente um conceito inspirador com as tendências da moda atual.",
+    "preco": 99,
+    "categoria": "Camisetas",
+    "tamanhos": ["Verde P"],
+    "imagens": [
+      "/produtos/colecao-evangelho.png",
+      "/produtos/pregar-2.jpg",
+      "/produtos/guia-tamanhos.jpg"
+    ],
+    "bullets": [
+      "Estampagem centralizada com logo e frase “Fé e Caminho”",
+      "Modelagem oversized de caimento despojado",
+      "Tecido de toque macio e alta durabilidade",
+      "Estoque atual: Verde, tam. P",
+      "Guia de tamanhos na galeria da peça"
+    ],
+    "tray": {
+      "url": "https://www.peregrino.art.br/camisetas/camiseta-evangelho-pregar",
+      "produtoId": 5,
+      "variantes": {
+        "Verde P": 163
+      }
     }
   }
 ]
