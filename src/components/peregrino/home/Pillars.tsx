@@ -2,7 +2,11 @@ import { DoorOpen, MessageCircle, Compass, Sun } from "lucide-react";
 
 const PILLARS = [
   { icon: DoorOpen, title: "Abre portas", lines: ["Uma mensagem pode", "abrir caminhos."] },
-  { icon: MessageCircle, title: "Desperta perguntas", lines: ["Perguntas abrem diálogos.", "Diálogos transformam vidas."] },
+  {
+    icon: MessageCircle,
+    title: "Desperta perguntas",
+    lines: ["Perguntas abrem diálogos.", "Diálogos transformam vidas."],
+  },
   { icon: Compass, title: "Aponta para Cristo", lines: ["O objetivo não é você.", "É Ele."] },
   { icon: Sun, title: "Seja luz", lines: ["Seja luz onde Deus", "te plantar."] },
 ];

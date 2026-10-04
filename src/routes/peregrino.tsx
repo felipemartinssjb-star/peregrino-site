@@ -20,9 +20,18 @@ export const Route = createFileRoute("/peregrino")({
 });
 
 const TRAITS = [
-  { title: "Caminha", text: "Não espera condições perfeitas. Anda com o que tem, para onde foi enviado." },
-  { title: "Carrega", text: "Leva consigo uma mensagem que não é sua — e por isso não a distorce." },
-  { title: "Permanece", text: "Não desiste na subida. Sabe que a promessa não depende do cansaço." },
+  {
+    title: "Caminha",
+    text: "Não espera condições perfeitas. Anda com o que tem, para onde foi enviado.",
+  },
+  {
+    title: "Carrega",
+    text: "Leva consigo uma mensagem que não é sua — e por isso não a distorce.",
+  },
+  {
+    title: "Permanece",
+    text: "Não desiste na subida. Sabe que a promessa não depende do cansaço.",
+  },
 ];
 
 function PeregrinoPage() {

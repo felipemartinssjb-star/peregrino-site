@@ -19,7 +19,8 @@ export function Footer() {
             <span className="caption text-sand">Navegar</span>
             <ul className="mt-6 space-y-4">
               {[
-                { label: "Coleção", to: "/produto" },
+                { label: "Catálogo", to: "/catalogo" },
+                { label: "Carrinho", to: "/carrinho" },
                 { label: "O Peregrino", to: "/peregrino" },
                 { label: "Missão", to: "/missao" },
               ].map((i) => (

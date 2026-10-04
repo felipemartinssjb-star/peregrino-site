@@ -15,6 +15,15 @@ dist-ssr
 .tanstack/**
 .nitro
 *.local
+*.tsbuildinfo
+
+# Segredos / variáveis de ambiente
+.env
+.env.*
+!.env.example
+
+# Lixo baixado de ferramenta externa (não é parte do projeto)
+Redimensionar imagem*
 
 # Wrangler / Cloudflare
 .wrangler/

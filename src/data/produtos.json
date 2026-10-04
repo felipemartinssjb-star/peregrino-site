@@ -1,0 +1,19 @@
+[
+  {
+    "id": "camiseta-oliva",
+    "nome": "Camiseta Caminho Oliva",
+    "descricao": "Algodão penteado 240g, corte oversized e caimento estruturado. Estampa discreta nas costas: “Evangelizar sem falar uma palavra.”",
+    "preco": 189,
+    "categoria": "Camisetas",
+    "tamanhos": ["P", "M", "G", "GG"],
+    "imagens": ["/produtos/camiseta-oliva-frente.jpg", "/produtos/camiseta-oliva-editorial.jpg"],
+    "bullets": [
+      "Algodão 100% penteado 240g",
+      "Tingimento em tons da terra",
+      "Produção em pequenos lotes"
+    ],
+    "tray": {
+      "url": ""
+    }
+  }
+]
